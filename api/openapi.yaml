@@ -1,0 +1,646 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: it@vilabs.eu
+  description: This is a sample openApi document
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: https://wabli.netlify.app/
+  title: TempApi
+  version: 1.0.0
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+- description: wabli-deploy-test
+  url: https://83.212.100.226:4008/v1
+security:
+- {}
+tags:
+- description: not yet ready
+  name: user
+- description: not yet ready
+  name: august
+- description: not yet ready
+  name: september
+paths:
+  /user:
+    post:
+      operationId: createuser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - user
+      x-eov-operation-handler: controllers/UserController
+  /user/{userId}:
+    delete:
+      operationId: deleteuser
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - user
+      x-eov-operation-handler: controllers/UserController
+    get:
+      operationId: getuser
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - user
+      x-eov-operation-handler: controllers/UserController
+    put:
+      operationId: updateuser
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - user
+      x-eov-operation-handler: controllers/UserController
+  /user/getAll:
+    get:
+      operationId: getAlluser
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/user'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - user
+      x-method-getAll: "true"
+      x-eov-operation-handler: controllers/UserController
+  /user/getByParams:
+    get:
+      operationId: getByParamsuser
+      parameters:
+      - description: the query based on which the search is performed
+        explode: true
+        in: query
+        name: filter
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/user'
+                type: array
+          description: successful operation
+      summary: Get all the data based on user query
+      tags:
+      - user
+      x-method-get-by-params: "true"
+      x-eov-operation-handler: controllers/UserController
+  /august:
+    post:
+      operationId: createaugust
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/august'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/august'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - august
+      x-eov-operation-handler: controllers/AugustController
+  /august/{augustId}:
+    delete:
+      operationId: deleteaugust
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: augustId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - august
+      x-eov-operation-handler: controllers/AugustController
+    get:
+      operationId: getaugust
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: augustId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/august'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - august
+      x-eov-operation-handler: controllers/AugustController
+    put:
+      operationId: updateaugust
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: augustId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/august'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/august'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - august
+      x-eov-operation-handler: controllers/AugustController
+  /august/getAll:
+    get:
+      operationId: getAllaugust
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/august'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - august
+      x-method-getAll: "true"
+      x-eov-operation-handler: controllers/AugustController
+  /august/getByParams:
+    get:
+      operationId: getByParamsaugust
+      parameters:
+      - description: the query based on which the search is performed
+        explode: true
+        in: query
+        name: filter
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/august'
+                type: array
+          description: successful operation
+      summary: Get all the data based on user query
+      tags:
+      - august
+      x-method-get-by-params: "true"
+      x-eov-operation-handler: controllers/AugustController
+  /september:
+    post:
+      operationId: createseptember
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/september'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/september'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - september
+      x-eov-operation-handler: controllers/SeptemberController
+  /september/{septemberId}:
+    delete:
+      operationId: deleteseptember
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: septemberId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - september
+      x-eov-operation-handler: controllers/SeptemberController
+    get:
+      operationId: getseptember
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: septemberId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/september'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - september
+      x-eov-operation-handler: controllers/SeptemberController
+    put:
+      operationId: updateseptember
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: septemberId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/september'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/september'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - september
+      x-eov-operation-handler: controllers/SeptemberController
+  /september/getAll:
+    get:
+      operationId: getAllseptember
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/september'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - september
+      x-method-getAll: "true"
+      x-eov-operation-handler: controllers/SeptemberController
+  /september/getByParams:
+    get:
+      operationId: getByParamsseptember
+      parameters:
+      - description: the query based on which the search is performed
+        explode: true
+        in: query
+        name: filter
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/september'
+                type: array
+          description: successful operation
+      summary: Get all the data based on user query
+      tags:
+      - september
+      x-method-get-by-params: "true"
+      x-eov-operation-handler: controllers/SeptemberController
+components:
+  schemas:
+    user:
+      example:
+        _id: _id
+        userName: userName
+        userSurname: userSurname
+      properties:
+        _id:
+          type: string
+        userName:
+          type: string
+        userSurname:
+          type: string
+      required:
+      - userName
+      - userSurname
+      type: object
+    august:
+      example:
+        day19: day19
+        employee: ""
+        day18: day18
+        day17: day17
+        day16: day16
+        day15: day15
+        day14: day14
+        day13: day13
+        day8: day8
+        day12: day12
+        day9: day9
+        day11: day11
+        day22: day22
+        day6: day6
+        day10: day10
+        day21: day21
+        day7: day7
+        day20: day20
+        day4: day4
+        day5: day5
+        day2: day2
+        day3: day3
+        _id: _id
+        day1: day1
+      properties:
+        _id:
+          type: string
+        employee:
+          oneOf:
+          - $ref: '#/components/schemas/user'
+          - type: string
+          x-one-of-name: user
+        day1:
+          type: string
+        day2:
+          type: string
+        day3:
+          type: string
+        day4:
+          type: string
+        day5:
+          type: string
+        day6:
+          type: string
+        day7:
+          type: string
+        day8:
+          type: string
+        day9:
+          type: string
+        day10:
+          type: string
+        day11:
+          type: string
+        day12:
+          type: string
+        day13:
+          type: string
+        day14:
+          type: string
+        day15:
+          type: string
+        day16:
+          type: string
+        day17:
+          type: string
+        day18:
+          type: string
+        day19:
+          type: string
+        day20:
+          type: string
+        day21:
+          type: string
+        day22:
+          type: string
+      required:
+      - day1
+      - day10
+      - day11
+      - day12
+      - day13
+      - day14
+      - day15
+      - day16
+      - day17
+      - day18
+      - day19
+      - day2
+      - day20
+      - day21
+      - day22
+      - day3
+      - day4
+      - day5
+      - day6
+      - day7
+      - day8
+      - day9
+      - employee
+      type: object
+    september:
+      example:
+        septDay17: septDay17
+        septDay18: septDay18
+        septDay19: septDay19
+        septDay13: septDay13
+        septDay14: septDay14
+        septDay15: septDay15
+        septDay16: septDay16
+        septDay20: septDay20
+        septDay10: septDay10
+        septDay21: septDay21
+        septDay11: septDay11
+        septDay12: septDay12
+        septDay8: septDay8
+        septDay9: septDay9
+        septDay6: septDay6
+        septDay7: septDay7
+        septDay4: septDay4
+        septDay5: septDay5
+        septDay2: septDay2
+        septDay3: septDay3
+        septDay1: septDay1
+        _id: _id
+        employeeSept: ""
+      properties:
+        _id:
+          type: string
+        employeeSept:
+          oneOf:
+          - $ref: '#/components/schemas/user'
+          - type: string
+          x-one-of-name: user
+        septDay1:
+          type: string
+        septDay2:
+          type: string
+        septDay3:
+          type: string
+        septDay4:
+          type: string
+        septDay5:
+          type: string
+        septDay6:
+          type: string
+        septDay7:
+          type: string
+        septDay8:
+          type: string
+        septDay9:
+          type: string
+        septDay10:
+          type: string
+        septDay11:
+          type: string
+        septDay12:
+          type: string
+        septDay13:
+          type: string
+        septDay14:
+          type: string
+        septDay15:
+          type: string
+        septDay16:
+          type: string
+        septDay17:
+          type: string
+        septDay18:
+          type: string
+        septDay19:
+          type: string
+        septDay20:
+          type: string
+        septDay21:
+          type: string
+      required:
+      - employeeSept
+      - septDay1
+      - septDay10
+      - septDay11
+      - septDay12
+      - septDay13
+      - septDay14
+      - septDay15
+      - septDay16
+      - septDay17
+      - septDay18
+      - septDay19
+      - septDay2
+      - septDay20
+      - septDay21
+      - septDay3
+      - septDay4
+      - septDay5
+      - septDay6
+      - septDay7
+      - septDay8
+      - septDay9
+      type: object
