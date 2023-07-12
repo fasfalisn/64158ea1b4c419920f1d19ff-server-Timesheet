@@ -24,6 +24,12 @@ tags:
   name: august
 - description: not yet ready
   name: september
+- description: not yet ready
+  name: october
+- description: not yet ready
+  name: november
+- description: not yet ready
+  name: december
 paths:
   /user:
     post:
@@ -424,6 +430,405 @@ paths:
       - september
       x-method-get-by-params: "true"
       x-eov-operation-handler: controllers/SeptemberController
+  /october:
+    post:
+      operationId: createoctober
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/october'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/october'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - october
+      x-eov-operation-handler: controllers/OctoberController
+  /october/{octoberId}:
+    delete:
+      operationId: deleteoctober
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: octoberId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - october
+      x-eov-operation-handler: controllers/OctoberController
+    get:
+      operationId: getoctober
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: octoberId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/october'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - october
+      x-eov-operation-handler: controllers/OctoberController
+    put:
+      operationId: updateoctober
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: octoberId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/october'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/october'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - october
+      x-eov-operation-handler: controllers/OctoberController
+  /october/getAll:
+    get:
+      operationId: getAlloctober
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/october'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - october
+      x-method-getAll: "true"
+      x-eov-operation-handler: controllers/OctoberController
+  /october/getByParams:
+    get:
+      operationId: getByParamsoctober
+      parameters:
+      - description: the query based on which the search is performed
+        explode: true
+        in: query
+        name: filter
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/october'
+                type: array
+          description: successful operation
+      summary: Get all the data based on user query
+      tags:
+      - october
+      x-method-get-by-params: "true"
+      x-eov-operation-handler: controllers/OctoberController
+  /november:
+    post:
+      operationId: createnovember
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/november'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/november'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - november
+      x-eov-operation-handler: controllers/NovemberController
+  /november/{novemberId}:
+    delete:
+      operationId: deletenovember
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: novemberId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - november
+      x-eov-operation-handler: controllers/NovemberController
+    get:
+      operationId: getnovember
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: novemberId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/november'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - november
+      x-eov-operation-handler: controllers/NovemberController
+    put:
+      operationId: updatenovember
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: novemberId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/november'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/november'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - november
+      x-eov-operation-handler: controllers/NovemberController
+  /november/getAll:
+    get:
+      operationId: getAllnovember
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/november'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - november
+      x-method-getAll: "true"
+      x-eov-operation-handler: controllers/NovemberController
+  /november/getByParams:
+    get:
+      operationId: getByParamsnovember
+      parameters:
+      - description: the query based on which the search is performed
+        explode: true
+        in: query
+        name: filter
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/november'
+                type: array
+          description: successful operation
+      summary: Get all the data based on user query
+      tags:
+      - november
+      x-method-get-by-params: "true"
+      x-eov-operation-handler: controllers/NovemberController
+  /december:
+    post:
+      operationId: createdecember
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/december'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/december'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - december
+      x-eov-operation-handler: controllers/DecemberController
+  /december/{decemberId}:
+    delete:
+      operationId: deletedecember
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: decemberId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - december
+      x-eov-operation-handler: controllers/DecemberController
+    get:
+      operationId: getdecember
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: decemberId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/december'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - december
+      x-eov-operation-handler: controllers/DecemberController
+    put:
+      operationId: updatedecember
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: decemberId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/december'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/december'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - december
+      x-eov-operation-handler: controllers/DecemberController
+  /december/getAll:
+    get:
+      operationId: getAlldecember
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/december'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - december
+      x-method-getAll: "true"
+      x-eov-operation-handler: controllers/DecemberController
+  /december/getByParams:
+    get:
+      operationId: getByParamsdecember
+      parameters:
+      - description: the query based on which the search is performed
+        explode: true
+        in: query
+        name: filter
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/december'
+                type: array
+          description: successful operation
+      summary: Get all the data based on user query
+      tags:
+      - december
+      x-method-get-by-params: "true"
+      x-eov-operation-handler: controllers/DecemberController
 components:
   schemas:
     user:
@@ -643,4 +1048,305 @@ components:
       - septDay7
       - septDay8
       - septDay9
+      type: object
+    october:
+      example:
+        octDay16: octDay16
+        employeeOct: ""
+        octDay15: octDay15
+        octDay18: octDay18
+        octDay17: octDay17
+        octDay2: octDay2
+        octDay3: octDay3
+        octDay10: octDay10
+        octDay21: octDay21
+        octDay1: octDay1
+        octDay20: octDay20
+        octDay12: octDay12
+        octDay11: octDay11
+        octDay22: octDay22
+        octDay14: octDay14
+        octDay13: octDay13
+        octDay8: octDay8
+        _id: _id
+        octDay9: octDay9
+        octDay6: octDay6
+        octDay7: octDay7
+        octDay4: octDay4
+        octDay5: octDay5
+      properties:
+        _id:
+          type: string
+        employeeOct:
+          oneOf:
+          - $ref: '#/components/schemas/user'
+          - type: string
+          x-one-of-name: user
+        octDay1:
+          type: string
+        octDay2:
+          type: string
+        octDay3:
+          type: string
+        octDay4:
+          type: string
+        octDay5:
+          type: string
+        octDay6:
+          type: string
+        octDay7:
+          type: string
+        octDay8:
+          type: string
+        octDay9:
+          type: string
+        octDay10:
+          type: string
+        octDay11:
+          type: string
+        octDay12:
+          type: string
+        octDay13:
+          type: string
+        octDay14:
+          type: string
+        octDay15:
+          type: string
+        octDay16:
+          type: string
+        octDay17:
+          type: string
+        octDay18:
+          type: string
+        octDay20:
+          type: string
+        octDay21:
+          type: string
+        octDay22:
+          type: string
+      required:
+      - employeeOct
+      - octDay1
+      - octDay10
+      - octDay11
+      - octDay12
+      - octDay13
+      - octDay14
+      - octDay15
+      - octDay16
+      - octDay17
+      - octDay18
+      - octDay2
+      - octDay20
+      - octDay21
+      - octDay22
+      - octDay3
+      - octDay4
+      - octDay5
+      - octDay6
+      - octDay7
+      - octDay8
+      - octDay9
+      type: object
+    november:
+      example:
+        novDay9: novDay9
+        novDay7: novDay7
+        novDay8: novDay8
+        novDay16: novDay16
+        novDay17: novDay17
+        novDay18: novDay18
+        novDay19: novDay19
+        novDay12: novDay12
+        novDay13: novDay13
+        novDay14: novDay14
+        novDay15: novDay15
+        novDay5: novDay5
+        novDay6: novDay6
+        novDay20: novDay20
+        novDay3: novDay3
+        novDay10: novDay10
+        novDay21: novDay21
+        _id: _id
+        novDay4: novDay4
+        novDay11: novDay11
+        novDay22: novDay22
+        novDay1: novDay1
+        employeeNov: ""
+        novDay2: novDay2
+      properties:
+        _id:
+          type: string
+        novDay1:
+          type: string
+        novDay2:
+          type: string
+        novDay3:
+          type: string
+        novDay4:
+          type: string
+        novDay5:
+          type: string
+        novDay6:
+          type: string
+        novDay7:
+          type: string
+        novDay8:
+          type: string
+        novDay9:
+          type: string
+        novDay10:
+          type: string
+        novDay11:
+          type: string
+        novDay12:
+          type: string
+        novDay13:
+          type: string
+        novDay14:
+          type: string
+        novDay15:
+          type: string
+        novDay16:
+          type: string
+        novDay17:
+          type: string
+        novDay18:
+          type: string
+        novDay19:
+          type: string
+        novDay20:
+          type: string
+        novDay21:
+          type: string
+        novDay22:
+          type: string
+        employeeNov:
+          oneOf:
+          - $ref: '#/components/schemas/user'
+          - type: string
+          x-one-of-name: user
+      required:
+      - employeeNov
+      - novDay1
+      - novDay10
+      - novDay11
+      - novDay12
+      - novDay13
+      - novDay14
+      - novDay15
+      - novDay16
+      - novDay17
+      - novDay18
+      - novDay19
+      - novDay2
+      - novDay20
+      - novDay21
+      - novDay22
+      - novDay3
+      - novDay4
+      - novDay5
+      - novDay6
+      - novDay7
+      - novDay8
+      - novDay9
+      type: object
+    december:
+      example:
+        decDay6: decDay6
+        decDay7: decDay7
+        decDay8: decDay8
+        decDay9: decDay9
+        decDay2: decDay2
+        decDay19: decDay19
+        decDay3: decDay3
+        decDay4: decDay4
+        decDay17: decDay17
+        decDay5: decDay5
+        decDay18: decDay18
+        decDay1: decDay1
+        employeeDec: ""
+        decDay15: decDay15
+        decDay16: decDay16
+        decDay13: decDay13
+        _id: _id
+        decDay14: decDay14
+        decDay11: decDay11
+        decDay12: decDay12
+        decDay20: decDay20
+        decDay10: decDay10
+        decDay21: decDay21
+      properties:
+        _id:
+          type: string
+        decDay1:
+          type: string
+        decDay2:
+          type: string
+        decDay3:
+          type: string
+        decDay4:
+          type: string
+        decDay5:
+          type: string
+        decDay6:
+          type: string
+        decDay7:
+          type: string
+        decDay8:
+          type: string
+        decDay9:
+          type: string
+        decDay10:
+          type: string
+        decDay11:
+          type: string
+        decDay12:
+          type: string
+        decDay13:
+          type: string
+        decDay14:
+          type: string
+        decDay15:
+          type: string
+        decDay16:
+          type: string
+        decDay17:
+          type: string
+        decDay18:
+          type: string
+        decDay19:
+          type: string
+        decDay20:
+          type: string
+        decDay21:
+          type: string
+        employeeDec:
+          oneOf:
+          - $ref: '#/components/schemas/user'
+          - type: string
+          x-one-of-name: user
+      required:
+      - decDay1
+      - decDay10
+      - decDay11
+      - decDay12
+      - decDay13
+      - decDay14
+      - decDay15
+      - decDay16
+      - decDay17
+      - decDay18
+      - decDay19
+      - decDay2
+      - decDay20
+      - decDay21
+      - decDay3
+      - decDay4
+      - decDay5
+      - decDay6
+      - decDay7
+      - decDay8
+      - decDay9
+      - employeeDec
       type: object
