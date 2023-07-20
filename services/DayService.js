@@ -1,18 +1,18 @@
 /* eslint-disable no-unused-vars */
 const Service = require('./Service');
-const { User } = require('../models/User');
+const { Day } = require('../models/Day');
 
 /**
 * Creates the data
 *
-* user User data to be created
-* returns user
+* day Day data to be created
+* returns day
 * */
-const createuser = ({ user }) => new Promise(
+const createday = ({ day }) => new Promise(
   async (resolve, reject) => {
     try {
       let query = {};
-      query = await new User(user).save();
+      query = await new Day(day).save();
       resolve(Service.successResponse({ query,}));
     } catch (e) {
       reject(Service.rejectResponse(
@@ -25,14 +25,14 @@ const createuser = ({ user }) => new Promise(
 /**
 * Delete the element
 *
-* userId String the Id parameter
+* dayId String the Id parameter
 * no response value expected for this operation
 * */
-const deleteuser = ({ userId }) => new Promise(
+const deleteday = ({ dayId }) => new Promise(
   async (resolve, reject) => {
     try {
       let query = {};
-      query = await User.findOneAndDelete({ _id:userId }).exec();
+      query = await Day.findOneAndDelete({ _id:dayId }).exec();
       resolve(Service.successResponse({ query,}));
     } catch (e) {
       reject(Service.rejectResponse(
@@ -47,11 +47,11 @@ const deleteuser = ({ userId }) => new Promise(
 *
 * returns Object
 * */
-const getAlluser = () => new Promise(
+const getAllday = () => new Promise(
   async (resolve, reject) => {
     try {
       let query = {}
-      query = await User.find().populate(['userProject']).exec();
+      query = await Day.find().exec();
       // this is a test
       resolve(Service.successResponse(query));
     } catch (e) {
@@ -68,11 +68,11 @@ const getAlluser = () => new Promise(
 * filter String the query based on which the search is performed
 * returns Object
 * */
-const getByParamsuser = ({ filter }) => new Promise(
+const getByParamsday = ({ filter }) => new Promise(
   async (resolve, reject) => {
     try {
       let query = {}
-      query = await User.find(JSON.parse( filter )).populate(['userProject']).exec();
+      query = await Day.find(JSON.parse( filter )).exec();
       // this is a test
       resolve(Service.successResponse(query));
     } catch (e) {
@@ -86,15 +86,15 @@ const getByParamsuser = ({ filter }) => new Promise(
 /**
 * Get the element
 *
-* userId String the Id parameter
-* returns user
+* dayId String the Id parameter
+* returns day
 * */
-const getuser = ({ userId }) => new Promise(
+const getday = ({ dayId }) => new Promise(
   async (resolve, reject) => {
     try {
       let query = {};
-      query = await User.findById(userId)
-      .populate(['userProject']).exec();
+      query = await Day.findById(dayId)
+      .exec();
       resolve(Service.successResponse({ query,}));
     } catch (e) {
       reject(Service.rejectResponse(
@@ -107,15 +107,15 @@ const getuser = ({ userId }) => new Promise(
 /**
 * Updates the element
 *
-* userId String the Id parameter
-* user User data to be updated (optional)
-* returns user
+* dayId String the Id parameter
+* day Day data to be updated (optional)
+* returns day
 * */
-const updateuser = ({ userId, user }) => new Promise(
+const updateday = ({ dayId, day }) => new Promise(
   async (resolve, reject) => {
     try {
       let query = {};
-      query = await User.findOneAndUpdate({ _id:userId },user).exec();
+      query = await Day.findOneAndUpdate({ _id:dayId },day).exec();
       resolve(Service.successResponse({ query,}));
     } catch (e) {
       reject(Service.rejectResponse(
@@ -127,10 +127,10 @@ const updateuser = ({ userId, user }) => new Promise(
 );
 
 module.exports = {
-  createuser,
-  deleteuser,
-  getAlluser,
-  getByParamsuser,
-  getuser,
-  updateuser,
+  createday,
+  deleteday,
+  getAllday,
+  getByParamsday,
+  getday,
+  updateday,
 };

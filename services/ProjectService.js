@@ -1,18 +1,18 @@
 /* eslint-disable no-unused-vars */
 const Service = require('./Service');
-const { User } = require('../models/User');
+const { Project } = require('../models/Project');
 
 /**
 * Creates the data
 *
-* user User data to be created
-* returns user
+* project Project data to be created
+* returns project
 * */
-const createuser = ({ user }) => new Promise(
+const createproject = ({ project }) => new Promise(
   async (resolve, reject) => {
     try {
       let query = {};
-      query = await new User(user).save();
+      query = await new Project(project).save();
       resolve(Service.successResponse({ query,}));
     } catch (e) {
       reject(Service.rejectResponse(
@@ -25,14 +25,14 @@ const createuser = ({ user }) => new Promise(
 /**
 * Delete the element
 *
-* userId String the Id parameter
+* projectId String the Id parameter
 * no response value expected for this operation
 * */
-const deleteuser = ({ userId }) => new Promise(
+const deleteproject = ({ projectId }) => new Promise(
   async (resolve, reject) => {
     try {
       let query = {};
-      query = await User.findOneAndDelete({ _id:userId }).exec();
+      query = await Project.findOneAndDelete({ _id:projectId }).exec();
       resolve(Service.successResponse({ query,}));
     } catch (e) {
       reject(Service.rejectResponse(
@@ -47,11 +47,11 @@ const deleteuser = ({ userId }) => new Promise(
 *
 * returns Object
 * */
-const getAlluser = () => new Promise(
+const getAllproject = () => new Promise(
   async (resolve, reject) => {
     try {
       let query = {}
-      query = await User.find().populate(['userProject']).exec();
+      query = await Project.find().populate(['projectWp']).exec();
       // this is a test
       resolve(Service.successResponse(query));
     } catch (e) {
@@ -68,11 +68,11 @@ const getAlluser = () => new Promise(
 * filter String the query based on which the search is performed
 * returns Object
 * */
-const getByParamsuser = ({ filter }) => new Promise(
+const getByParamsproject = ({ filter }) => new Promise(
   async (resolve, reject) => {
     try {
       let query = {}
-      query = await User.find(JSON.parse( filter )).populate(['userProject']).exec();
+      query = await Project.find(JSON.parse( filter )).populate(['projectWp']).exec();
       // this is a test
       resolve(Service.successResponse(query));
     } catch (e) {
@@ -86,15 +86,15 @@ const getByParamsuser = ({ filter }) => new Promise(
 /**
 * Get the element
 *
-* userId String the Id parameter
-* returns user
+* projectId String the Id parameter
+* returns project
 * */
-const getuser = ({ userId }) => new Promise(
+const getproject = ({ projectId }) => new Promise(
   async (resolve, reject) => {
     try {
       let query = {};
-      query = await User.findById(userId)
-      .populate(['userProject']).exec();
+      query = await Project.findById(projectId)
+      .populate(['projectWp']).exec();
       resolve(Service.successResponse({ query,}));
     } catch (e) {
       reject(Service.rejectResponse(
@@ -107,15 +107,15 @@ const getuser = ({ userId }) => new Promise(
 /**
 * Updates the element
 *
-* userId String the Id parameter
-* user User data to be updated (optional)
-* returns user
+* projectId String the Id parameter
+* project Project data to be updated (optional)
+* returns project
 * */
-const updateuser = ({ userId, user }) => new Promise(
+const updateproject = ({ projectId, project }) => new Promise(
   async (resolve, reject) => {
     try {
       let query = {};
-      query = await User.findOneAndUpdate({ _id:userId },user).exec();
+      query = await Project.findOneAndUpdate({ _id:projectId },project).exec();
       resolve(Service.successResponse({ query,}));
     } catch (e) {
       reject(Service.rejectResponse(
@@ -127,10 +127,10 @@ const updateuser = ({ userId, user }) => new Promise(
 );
 
 module.exports = {
-  createuser,
-  deleteuser,
-  getAlluser,
-  getByParamsuser,
-  getuser,
-  updateuser,
+  createproject,
+  deleteproject,
+  getAllproject,
+  getByParamsproject,
+  getproject,
+  updateproject,
 };

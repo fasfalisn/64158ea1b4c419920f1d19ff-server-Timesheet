@@ -2,22 +2,22 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const monthSchema = new Schema({
 Underscoreid:String , 
 
 
-userName:String , 
+monthName:String , 
 
 
-userSurname:String , 
+monthId:String , 
 
 
 
 
- userProject: [ 
+ monthDay: [ 
   {
     type: Schema.Types.ObjectId,
-    ref:'project'
+    ref:'day'
   }
 
 ]
@@ -27,6 +27,6 @@ userSurname:String ,
 })
 
 module.exports = {
-  User : mongoose.model('user', userSchema),
+  Month : mongoose.model('month', monthSchema),
 }
 

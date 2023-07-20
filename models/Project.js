@@ -2,22 +2,22 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const projectSchema = new Schema({
 Underscoreid:String , 
 
 
-userName:String , 
+projectId:String , 
 
 
-userSurname:String , 
+projectName:String , 
 
 
 
 
- userProject: [ 
+ projectWp: [ 
   {
     type: Schema.Types.ObjectId,
-    ref:'project'
+    ref:'workpackage'
   }
 
 ]
@@ -27,6 +27,6 @@ userSurname:String ,
 })
 
 module.exports = {
-  User : mongoose.model('user', userSchema),
+  Project : mongoose.model('project', projectSchema),
 }
 

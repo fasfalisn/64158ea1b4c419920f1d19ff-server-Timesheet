@@ -21,6 +21,8 @@ tags:
 - description: not yet ready
   name: user
 - description: not yet ready
+  name: project
+- description: not yet ready
   name: august
 - description: not yet ready
   name: september
@@ -30,6 +32,12 @@ tags:
   name: november
 - description: not yet ready
   name: december
+- description: not yet ready
+  name: day
+- description: not yet ready
+  name: month
+- description: not yet ready
+  name: workpackage
 paths:
   /user:
     post:
@@ -164,6 +172,139 @@ paths:
       - user
       x-method-get-by-params: "true"
       x-eov-operation-handler: controllers/UserController
+  /project:
+    post:
+      operationId: createproject
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/project'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/project'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - project
+      x-eov-operation-handler: controllers/ProjectController
+  /project/{projectId}:
+    delete:
+      operationId: deleteproject
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - project
+      x-eov-operation-handler: controllers/ProjectController
+    get:
+      operationId: getproject
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/project'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - project
+      x-eov-operation-handler: controllers/ProjectController
+    put:
+      operationId: updateproject
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/project'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/project'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - project
+      x-eov-operation-handler: controllers/ProjectController
+  /project/getAll:
+    get:
+      operationId: getAllproject
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/project'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - project
+      x-method-getAll: "true"
+      x-eov-operation-handler: controllers/ProjectController
+  /project/getByParams:
+    get:
+      operationId: getByParamsproject
+      parameters:
+      - description: the query based on which the search is performed
+        explode: true
+        in: query
+        name: filter
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/project'
+                type: array
+          description: successful operation
+      summary: Get all the data based on user query
+      tags:
+      - project
+      x-method-get-by-params: "true"
+      x-eov-operation-handler: controllers/ProjectController
   /august:
     post:
       operationId: createaugust
@@ -829,12 +970,414 @@ paths:
       - december
       x-method-get-by-params: "true"
       x-eov-operation-handler: controllers/DecemberController
+  /day:
+    post:
+      operationId: createday
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/day'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/day'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - day
+      x-eov-operation-handler: controllers/DayController
+  /day/{dayId}:
+    delete:
+      operationId: deleteday
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: dayId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - day
+      x-eov-operation-handler: controllers/DayController
+    get:
+      operationId: getday
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: dayId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/day'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - day
+      x-eov-operation-handler: controllers/DayController
+    put:
+      operationId: updateday
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: dayId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/day'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/day'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - day
+      x-eov-operation-handler: controllers/DayController
+  /day/getAll:
+    get:
+      operationId: getAllday
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/day'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - day
+      x-method-getAll: "true"
+      x-eov-operation-handler: controllers/DayController
+  /day/getByParams:
+    get:
+      operationId: getByParamsday
+      parameters:
+      - description: the query based on which the search is performed
+        explode: true
+        in: query
+        name: filter
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/day'
+                type: array
+          description: successful operation
+      summary: Get all the data based on user query
+      tags:
+      - day
+      x-method-get-by-params: "true"
+      x-eov-operation-handler: controllers/DayController
+  /month:
+    post:
+      operationId: createmonth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/month'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/month'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - month
+      x-eov-operation-handler: controllers/MonthController
+  /month/{monthId}:
+    delete:
+      operationId: deletemonth
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: monthId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - month
+      x-eov-operation-handler: controllers/MonthController
+    get:
+      operationId: getmonth
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: monthId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/month'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - month
+      x-eov-operation-handler: controllers/MonthController
+    put:
+      operationId: updatemonth
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: monthId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/month'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/month'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - month
+      x-eov-operation-handler: controllers/MonthController
+  /month/getAll:
+    get:
+      operationId: getAllmonth
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/month'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - month
+      x-method-getAll: "true"
+      x-eov-operation-handler: controllers/MonthController
+  /month/getByParams:
+    get:
+      operationId: getByParamsmonth
+      parameters:
+      - description: the query based on which the search is performed
+        explode: true
+        in: query
+        name: filter
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/month'
+                type: array
+          description: successful operation
+      summary: Get all the data based on user query
+      tags:
+      - month
+      x-method-get-by-params: "true"
+      x-eov-operation-handler: controllers/MonthController
+  /workpackage:
+    post:
+      operationId: createworkpackage
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/workpackage'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/workpackage'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - workpackage
+      x-eov-operation-handler: controllers/WorkpackageController
+  /workpackage/{workpackageId}:
+    delete:
+      operationId: deleteworkpackage
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: workpackageId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - workpackage
+      x-eov-operation-handler: controllers/WorkpackageController
+    get:
+      operationId: getworkpackage
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: workpackageId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/workpackage'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - workpackage
+      x-eov-operation-handler: controllers/WorkpackageController
+    put:
+      operationId: updateworkpackage
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: workpackageId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/workpackage'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/workpackage'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - workpackage
+      x-eov-operation-handler: controllers/WorkpackageController
+  /workpackage/getAll:
+    get:
+      operationId: getAllworkpackage
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/workpackage'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - workpackage
+      x-method-getAll: "true"
+      x-eov-operation-handler: controllers/WorkpackageController
+  /workpackage/getByParams:
+    get:
+      operationId: getByParamsworkpackage
+      parameters:
+      - description: the query based on which the search is performed
+        explode: true
+        in: query
+        name: filter
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/workpackage'
+                type: array
+          description: successful operation
+      summary: Get all the data based on user query
+      tags:
+      - workpackage
+      x-method-get-by-params: "true"
+      x-eov-operation-handler: controllers/WorkpackageController
 components:
   schemas:
     user:
       example:
         _id: _id
         userName: userName
+        userProject:
+        - ""
+        - ""
         userSurname: userSurname
       properties:
         _id:
@@ -843,9 +1386,44 @@ components:
           type: string
         userSurname:
           type: string
+        userProject:
+          items:
+            oneOf:
+            - $ref: '#/components/schemas/project'
+            - type: string
+            x-one-of-name: project
+          type: array
       required:
       - userName
+      - userProject
       - userSurname
+      type: object
+    project:
+      example:
+        _id: _id
+        projectWp:
+        - ""
+        - ""
+        projectName: projectName
+        projectId: projectId
+      properties:
+        _id:
+          type: string
+        projectId:
+          type: string
+        projectName:
+          type: string
+        projectWp:
+          items:
+            oneOf:
+            - $ref: '#/components/schemas/workpackage'
+            - type: string
+            x-one-of-name: workpackage
+          type: array
+      required:
+      - projectId
+      - projectName
+      - projectWp
       type: object
     august:
       example:
@@ -1349,4 +1927,80 @@ components:
       - decDay8
       - decDay9
       - employeeDec
+      type: object
+    day:
+      example:
+        dayDate: 2000-01-23
+        dayHours: 0.8008281904610115
+        dayId: dayId
+        _id: _id
+      properties:
+        _id:
+          type: string
+        dayId:
+          type: string
+        dayDate:
+          format: date
+          type: string
+        dayHours:
+          format: double
+          type: number
+      required:
+      - dayDate
+      - dayHours
+      - dayId
+      type: object
+    month:
+      example:
+        monthDay:
+        - ""
+        - ""
+        monthName: monthName
+        _id: _id
+        monthId: monthId
+      properties:
+        _id:
+          type: string
+        monthName:
+          type: string
+        monthId:
+          type: string
+        monthDay:
+          items:
+            oneOf:
+            - $ref: '#/components/schemas/day'
+            - type: string
+            x-one-of-name: day
+          type: array
+      required:
+      - monthDay
+      - monthId
+      - monthName
+      type: object
+    workpackage:
+      example:
+        workpackageId: workpackageId
+        workpackageMonth:
+        - ""
+        - ""
+        _id: _id
+        workpackageName: workpackageName
+      properties:
+        _id:
+          type: string
+        workpackageId:
+          type: string
+        workpackageName:
+          type: string
+        workpackageMonth:
+          items:
+            oneOf:
+            - $ref: '#/components/schemas/month'
+            - type: string
+            x-one-of-name: month
+          type: array
+      required:
+      - workpackageId
+      - workpackageMonth
+      - workpackageName
       type: object
