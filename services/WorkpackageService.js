@@ -51,7 +51,13 @@ const getAllworkpackage = () => new Promise(
   async (resolve, reject) => {
     try {
       let query = {}
-      query = await Workpackage.find().populate(['workpackageMonth']).exec();
+      query = await Workpackage.find()
+      .populate({
+        path: 'workpackageMonth',
+        populate: {
+          path: 'monthDay'        }
+        })
+      .exec();
       // this is a test
       resolve(Service.successResponse(query));
     } catch (e) {
@@ -72,7 +78,13 @@ const getByParamsworkpackage = ({ filter }) => new Promise(
   async (resolve, reject) => {
     try {
       let query = {}
-      query = await Workpackage.find(JSON.parse( filter )).populate(['workpackageMonth']).exec();
+      query = await Workpackage.find(JSON.parse( filter ))
+      .populate({
+        path: 'workpackageMonth',
+        populate: {
+          path: 'monthDay'        }
+        })
+      .exec();
       // this is a test
       resolve(Service.successResponse(query));
     } catch (e) {
@@ -94,7 +106,13 @@ const getworkpackage = ({ workpackageId }) => new Promise(
     try {
       let query = {};
       query = await Workpackage.findById(workpackageId)
-      .populate(['workpackageMonth']).exec();
+      
+      .populate({
+        path: 'workpackageMonth',
+        populate: {
+          path: 'monthDay'        }
+        })
+      .exec();
       resolve(Service.successResponse({ query,}));
     } catch (e) {
       reject(Service.rejectResponse(

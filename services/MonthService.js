@@ -51,7 +51,10 @@ const getAllmonth = () => new Promise(
   async (resolve, reject) => {
     try {
       let query = {}
-      query = await Month.find().populate(['monthDay']).exec();
+      query = await Month.find()
+      .populate({
+        path: 'monthDay'        })
+      .exec();
       // this is a test
       resolve(Service.successResponse(query));
     } catch (e) {
@@ -72,7 +75,10 @@ const getByParamsmonth = ({ filter }) => new Promise(
   async (resolve, reject) => {
     try {
       let query = {}
-      query = await Month.find(JSON.parse( filter )).populate(['monthDay']).exec();
+      query = await Month.find(JSON.parse( filter ))
+      .populate({
+        path: 'monthDay'        })
+      .exec();
       // this is a test
       resolve(Service.successResponse(query));
     } catch (e) {
@@ -94,7 +100,10 @@ const getmonth = ({ monthId }) => new Promise(
     try {
       let query = {};
       query = await Month.findById(monthId)
-      .populate(['monthDay']).exec();
+      
+      .populate({
+        path: 'monthDay'        })
+      .exec();
       resolve(Service.successResponse({ query,}));
     } catch (e) {
       reject(Service.rejectResponse(

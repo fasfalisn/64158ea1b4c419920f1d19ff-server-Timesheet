@@ -51,7 +51,17 @@ const getAllseptember = () => new Promise(
   async (resolve, reject) => {
     try {
       let query = {}
-      query = await September.find().populate(['employeeSept']).exec();
+      query = await September.find()
+      .populate({
+        path: 'employeeSept',
+        populate: {
+          path: 'userProject',
+          populate: {
+            path: 'projectWp'
+          }
+        }
+        })
+      .exec();
       // this is a test
       resolve(Service.successResponse(query));
     } catch (e) {
@@ -72,7 +82,17 @@ const getByParamsseptember = ({ filter }) => new Promise(
   async (resolve, reject) => {
     try {
       let query = {}
-      query = await September.find(JSON.parse( filter )).populate(['employeeSept']).exec();
+      query = await September.find(JSON.parse( filter ))
+      .populate({
+        path: 'employeeSept',
+        populate: {
+          path: 'userProject',
+          populate: {
+            path: 'projectWp'
+          }
+        }
+        })
+      .exec();
       // this is a test
       resolve(Service.successResponse(query));
     } catch (e) {
@@ -94,7 +114,17 @@ const getseptember = ({ septemberId }) => new Promise(
     try {
       let query = {};
       query = await September.findById(septemberId)
-      .populate(['employeeSept']).exec();
+      
+      .populate({
+        path: 'employeeSept',
+        populate: {
+          path: 'userProject',
+          populate: {
+            path: 'projectWp'
+          }
+        }
+        })
+      .exec();
       resolve(Service.successResponse({ query,}));
     } catch (e) {
       reject(Service.rejectResponse(
